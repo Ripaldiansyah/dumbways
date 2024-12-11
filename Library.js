@@ -20,7 +20,7 @@ export class Library {
   }
 
   returnBook(book) {
-    const tempBook = this.books.find((book) => book === book);
+    const tempBook = this.books.find((b) => b === book);
     if (tempBook) {
       tempBook.isAvailable = true;
       return "Buku berhasil dikembalikan";
