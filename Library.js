@@ -1,33 +1,28 @@
 export class Library {
-  constructor(book) {
-    this.book = book;
+  constructor() {
     this.books = [];
   }
 
-  addBook() {
-    this.books.push(this.book);
+  addBook(book) {
+    this.books.push(book);
     return "Buku berhasil ditambahkan";
   }
 
-  lendBook() {
-    const isAvailable = this.books.find(
-      (book) => book.title === this.book.title
-    );
+  lendBook(book) {
+    const tempBook = this.books.find((b) => b === book);
 
-    if (isAvailable) {
-      this.book.isAvailable = false;
+    if (tempBook) {
+      tempBook.isAvailable = false;
       return "Buku berhasil dipinjam";
     }
 
     return "Buka tidak tersedia";
   }
 
-  returnBook() {
-    const isAvailable = this.books.find(
-      (book) => book.title === this.book.title
-    );
-    if (isAvailable) {
-      this.book.isAvailable = true;
+  returnBook(book) {
+    const tempBook = this.books.find((book) => book === book);
+    if (tempBook) {
+      tempBook.isAvailable = true;
       return "Buku berhasil dikembalikan";
     }
     return "Buku tidak tersedia";
