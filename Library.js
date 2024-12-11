@@ -10,8 +10,7 @@ export class Library {
 
   lendBook(book) {
     const tempBook = this.books.find((b) => b === book);
-
-    if (tempBook.isAvailable) {
+    if (tempBook && tempBook.isAvailable) {
       tempBook.isAvailable = !tempBook.isAvailable;
       return "Buku berhasil dipinjam";
     }
@@ -21,7 +20,7 @@ export class Library {
 
   returnBook(book) {
     const tempBook = this.books.find((b) => b === book);
-    if (!tempBook.isAvailable) {
+    if (tempBook && tempBook.isAvailable == false) {
       tempBook.isAvailable = !tempBook.isAvailable;
       return "Buku berhasil dikembalikan";
     }
